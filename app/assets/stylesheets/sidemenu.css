@@ -1,0 +1,67 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+    height: 100%;
+    width: 60px;
+    position: absolute;
+    z-index: 1;
+    top: 1;
+    left: 0;
+    background-color: rgb(0, 54, 105);
+    overflow-x: hidden;
+    transition: 0.1s;
+    padding-top: 20px;
+    white-space: nowrap;
+
+}
+
+.sidebar a {
+    padding: 7px 7px 7px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.1s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.material-icons,
+.icon-text {
+    vertical-align: middle;
+}
+
+.material-icons {
+    padding-bottom: 3px;
+    margin-left: -16px;
+}
+
+#main {
+    transition: margin-left .1s;
+    padding: 8x;
+    margin-left: 60px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+
+    .sidebar a {
+        font-size: 18px;
+    }
+}

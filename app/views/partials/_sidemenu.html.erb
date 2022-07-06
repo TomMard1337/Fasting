@@ -1,1 +1,49 @@
-SIDEMENU PARTIAL
+<head>
+     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+     <%= stylesheet_link_tag "sidemenu" %>
+          <style>
+      </style>
+</head>
+
+<body>
+
+    <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+    <%# <% if user_signed_in? %>
+        <a href="#"><span><i class="material-icons">info</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;about</span></a><br>
+        <a href="#"><i class="material-icons">spa</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;services</a></span>
+        </a><br>
+        <a href="#"><i class="material-icons">monetization_on</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;clients</span></a><br>
+        <a href="#"><i class="material-icons">email</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;contact<span></a>
+         <%# <% else %> 
+        <%# <a href="#"><i class="material-icons">warning</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Please Login<span></a>
+         <% end  %>
+    </div>
+
+    <div id="main" class="container mx-auto px-20">
+         <%= yield %>
+    </div>
+
+<script>
+        var mini = true;
+        var checkBoxID = document.getElementById("toggleSidebarButton");
+        function toggleSidebar() {
+            if (!mini && checkBoxID.checked == false) {
+                console.log("opening sidebar");
+                // document.getElementById("mySidebar").style.width = "250px";
+                // document.getElementById("main").style.marginLeft = "250px";
+                document.getElementById("mySidebar").style.width = "60px";
+                document.getElementById("main").style.marginLeft = "60px";
+                this.mini = true;
+                // this.checkBoxID.checked == true
+            } else {
+                console.log("closing sidebar");
+                // document.getElementById("mySidebar").style.width = "60px";
+                // document.getElementById("main").style.marginLeft = "60px";
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                this.mini = false;  
+            } 
+        }
+    </script>
+
+</body>

@@ -4,6 +4,22 @@
 <body>
 
 <ul>
+<li id="sideBarButtonToggle">
+    <div class="flex items-left justify-center w-full">
+    <form autocomplete="off">
+  <label for="toggleSidebarButton" class="flex items-center cursor-pointer">
+    <!-- toggle -->
+    <div class="relative">
+      <!-- input -->
+      <input type="checkbox" onclick="toggleSidebar()" id="toggleSidebarButton" class="sr-only">
+      <!-- line -->
+      <div class="block m-2 bg-gray-600 w-12 h-7 rounded-full"></div>
+      <!-- dot -->
+      <div class="dot absolute left-3 top-3 bg-white w-5 h-5 rounded-full transition"></div>
+    </div>
+  </label>
+  </form>
+  </li>
   <li><a href="#about">Login</a></li>
   <li><a href="#news">Register</a></li>
   <li><a href="#about">Links</a></li>
