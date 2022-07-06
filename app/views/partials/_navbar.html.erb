@@ -20,12 +20,42 @@
   </label>
   </form>
   </li>
+
+  <div id="menu" class="w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 hidden">
   <li><a href="#about">Login</a></li>
   <li><a href="#news">Register</a></li>
   <li><a href="#about">Links</a></li>
   <li><a href="#contact">Contact</a></li>
   <li><a href="#about">About</a></li>
   <li><a class="active" href="#home">Home</a></li>
+  </div>
+  <script>
+var nav = document.getElementById('site-menu');
+var header = document.getElementById('top');
+
+// window.addEventListener('scroll', function() {
+//   if (window.scrollY >=400) { // adjust this value based on site structure and header image height
+//     nav.classList.add('nav-sticky');
+//     header.classList.add('pt-scroll');
+//   } else {
+//     nav.classList.remove('nav-sticky');
+//     header.classList.remove('pt-scroll');
+//   }
+// });
+
+function navToggle() {
+        var btn = document.getElementById('hamburgerMenuButton');
+        var nav = document.getElementById('menu');
+
+        btn.classList.toggle('open');
+        nav.classList.toggle('flex');
+        nav.classList.toggle('hidden');
+    }
+  </script>
+   <button id="hamburgerMenuButton" class="hamburger block sm:hidden focus:outline-none" type="button" onclick="navToggle();">
+          <span class="hamburger__top-bun"></span><span class="hamburger__bottom-bun"></span>
+        </button>
+        
 </ul>
 
 </body>
