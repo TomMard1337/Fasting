@@ -1,26 +1,42 @@
-<h2>Log in</h2>
-
+<style>
+/* CHECKBOX TOGGLE SWITCH */
+/* @apply rules for documentation, these do not work as inline style */
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: #68D391;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  background-color: #68D391;
+}
+</style>
+<div class="w-full min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+  <div class="w-full sm:max-w-md p-5 mx-auto">
+    <h2 class="mb-12 text-center text-5xl font-extrabold">Please login</h2>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="mb-4">
+    <%= f.label :email%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" %>
   </div>
-
-  <div class="field">
+  <div class="mb-4">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", class:"py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" %>
   </div>
-
   <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+      <%= f.check_box :remember_me, class:"toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer" %>
+      <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label> 
     </div>
+     <%= f.label :remember_me%> 
+     <br>
   <% end %>
-
+<br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <button class="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition"><%= f.submit "Log in" %></button>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+  </div>
+</div>
+
