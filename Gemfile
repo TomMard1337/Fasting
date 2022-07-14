@@ -10,7 +10,8 @@ gem "rails", "~> 7.0.2", ">= 7.0.2.4"
 gem "sprockets-rails"
 # Account Handling Gem Devise
 gem 'devise'
-
+# Time difference gem
+gem 'time_difference'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

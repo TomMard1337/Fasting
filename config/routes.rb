@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :addfasts
   root 'home#index'
   get 'home/about'
   get 'home/contact'

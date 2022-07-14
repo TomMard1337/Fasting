@@ -1,0 +1,28 @@
+<%= form_with(model: addfast) do |form| %>
+  <% if addfast.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(addfast.errors.count, "error") %> prohibited this addfast from being saved:</h2>
+
+      <ul>
+        <% addfast.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Name, style: "display: block" %>
+    <%= form.text_field :Name %>
+  </div>
+
+  <div>
+
+    <%= form.label :DateAndTime, style: "display: block"  %>
+    <%= form.datetime_select :DateAndTime, :start_year => 2022, :order => [:month, :day, :year] %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

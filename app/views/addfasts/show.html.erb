@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @addfast %>
+
+<div>
+  <%= link_to "Edit this addfast", edit_addfast_path(@addfast) %> |
+  <%= link_to "Back to addfasts", addfasts_path %>
+
+  <%= button_to "Destroy this addfast", @addfast, method: :delete %>
+</div>

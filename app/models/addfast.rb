@@ -1,0 +1,2 @@
+class Addfast < ApplicationRecord
+end

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Addfasts</h1>
+
+<div id="addfasts">
+  <% @addfasts.each do |addfast| %>
+    <%= render addfast %>
+    <p>
+      <%= link_to "Show this addfast", addfast %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New addfast", new_addfast_path %>
