@@ -1,6 +1,7 @@
 class AddfastsController < ApplicationController
   before_action :set_addfast, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_account!
+  before_action :correct_account, only: [:show, :edit, :update, :destroy]
   # GET /addfasts or /addfasts.json
   def index
     @addfasts = Addfast.all
@@ -12,7 +13,9 @@ class AddfastsController < ApplicationController
 
   # GET /addfasts/new
   def new
-    @addfast = Addfast.new
+
+    # @addfast = Addfast.new
+    @addfast = current_account.addfasts.build
   end
 
   # GET /addfasts/1/edit
@@ -21,8 +24,10 @@ class AddfastsController < ApplicationController
 
   # POST /addfasts or /addfasts.json
   def create
-    @addfast = Addfast.new(addfast_params)
-
+     #@friend = Friend.new(friend_params)
+    #  @friend = current_user.friends.build(friend_params)
+    # @addfast = Addfast.new(addfast_params)
+      @addfast = current_account.addfasts.build(addfast_params)
     respond_to do |format|
       if @addfast.save
         format.html { redirect_to addfast_url(@addfast), notice: "Addfast was successfully created." }
@@ -57,6 +62,11 @@ class AddfastsController < ApplicationController
     end
   end
 
+  def correct_account
+    @addfast = current_account.addfasts.find_by(id: params[:id])
+    redirect_to addfasts_path, notice: "Not Authorized" if @addfast.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_addfast
@@ -65,6 +75,6 @@ class AddfastsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def addfast_params
-      params.require(:addfast).permit(:Name, :DateAndTime)
+      params.require(:addfast).permit(:Name, :DateAndTime, :account_id)
     end
 end

@@ -4,10 +4,13 @@
 
 <div id="addfasts">
   <% @addfasts.each do |addfast| %>
+   <% if addfast.account == current_account %>
     <%= render addfast %>
+      
     <p>
       <%= link_to "Show this addfast", addfast %>
     </p>
+    <% end %>
   <% end %>
 </div>
 

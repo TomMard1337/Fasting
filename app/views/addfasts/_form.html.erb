@@ -21,7 +21,7 @@
     <%= form.label :DateAndTime, style: "display: block"  %>
     <%= form.datetime_select :DateAndTime, :start_year => 2022, :order => [:month, :day, :year] %>
   </div>
-
+    <%= form.number_field :account_id, id: :account_user_id, value: current_account.id, type: :hidden %>
   <div>
     <%= form.submit %>
   </div>
