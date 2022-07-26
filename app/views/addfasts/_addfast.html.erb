@@ -1,8 +1,8 @@
 <div id="<%= dom_id addfast %>">
-  <p>
+
     <strong>Name:</strong>
-    <%= addfast.Name %>
-  </p>
+   <td> <%= addfast.Name %> </td>
+
 
   <p>
     <strong>Started to fast </strong>
@@ -12,6 +12,9 @@
     <strong>How Long Fasted </strong>
     <%= TimeDifference.between(addfast.DateAndTime.strftime("%Y-%m-%d %H:%M:%S"), currentTimeAndDate).humanize %>
   </p>
-
-
+  <p>
+    <strong>Kcal burned (BMR / 24) * fast time</strong>
+    <%= TimeDifference.between(addfast.DateAndTime.strftime("%Y-%m-%d %H:%M:%S"), currentTimeAndDate).in_minutes %>
+  </p>
 </div>
+

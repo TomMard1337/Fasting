@@ -9,7 +9,11 @@
 
     <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
    <% if account_signed_in? %>
-        <a href="#"><span><i class="material-icons">info</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;about</span></a><br>
+
+       
+        <%= link_to '<span><i class="material-icons">info</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Set fasting</span>'.html_safe, addfasts_path %><br>
+        <%= link_to '<span><i class="material-icons">spa</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;BMR Calculator</span>'.html_safe, calculator_bmr_path %><br>
+        <%= link_to '<span><i class="material-icons">monetization_on</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Fasting Stages</span>'.html_safe, addfasts_path %><br>
         <a href="#"><i class="material-icons">spa</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;services</a></span>
         </a><br>
         <a href="#"><i class="material-icons">monetization_on</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;clients</span></a><br>

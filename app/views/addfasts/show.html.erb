@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this addfast", edit_addfast_path(@addfast) %> |
-  <%= link_to "Back to addfasts", addfasts_path %>
-
+  <%= link_to "Back to addfasts", addfasts_path %> |
+  <%= link_to "Calculate calories", calculator_bmr_path %>
   <%= button_to "Destroy this addfast", @addfast, method: :delete %>
 </div>

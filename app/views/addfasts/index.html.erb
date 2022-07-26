@@ -1,17 +1,28 @@
-<p style="color: green"><%= notice %></p>
+<%# fix border spacing %>
+<table class="border-collapse border border-slate-500">
+    <thead>
+      <tr>
+    <th>Name</th>
+    <th>Fasting Start</th>
+    <th>Time fasted</th>
+    <th>Modify</th>
+    <th>Kcal burned</th>
+      </tr>
+    </thead>
 
-<h1>Addfasts</h1>
-
-<div id="addfasts">
+    <tbody>
   <% @addfasts.each do |addfast| %>
    <% if addfast.account == current_account %>
-    <%= render addfast %>
-      
-    <p>
-      <%= link_to "Show this addfast", addfast %>
-    </p>
-    <% end %>
-  <% end %>
-</div>
-
+        <tr>
+          <td class="border border-slate-800"><%= addfast.Name %></td>
+          <td class="border border-slate-800"><%= addfast.DateAndTime.strftime("%Y-%m-%d %H:%M:%S") %></td>
+          <td class="border border-slate-800"><%= TimeDifference.between(addfast.DateAndTime.strftime("%Y-%m-%d %H:%M:%S"), currentTimeAndDate).humanize %></td>
+          <td class="border border-slate-800"><%= link_to "View", addfast %> </td>
+          <%# do If statement if it is not calculated then provide link of BMR calculator if it's calculated then show how many kcal is burned during this fast%>
+          <td class="border border-slate-800"><%= link_to "Calculate", calculator_bmr_path %></td>
+        </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 <%= link_to "New addfast", new_addfast_path %>

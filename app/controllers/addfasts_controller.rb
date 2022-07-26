@@ -24,9 +24,6 @@ class AddfastsController < ApplicationController
 
   # POST /addfasts or /addfasts.json
   def create
-     #@friend = Friend.new(friend_params)
-    #  @friend = current_user.friends.build(friend_params)
-    # @addfast = Addfast.new(addfast_params)
       @addfast = current_account.addfasts.build(addfast_params)
     respond_to do |format|
       if @addfast.save
