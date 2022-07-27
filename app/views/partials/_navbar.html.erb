@@ -23,7 +23,7 @@
   <div id="menu" class="w-full sm:w-auto self-end sm:self-center sm:flex flex-col sm:flex-row items-center h-full py-1 pb-4 sm:py-0 sm:pb-0 hidden">
   <% if account_signed_in? %>
   <li><%= link_to 'Logout', destroy_account_session_path %></li>
-  <li><%= link_to 'Edit Account', edit_account_password_path %></li>
+  <li><%= link_to 'Edit Account', edit_account_registration_path %></li>
   <li><%= link_to 'Addfast', addfasts_path %></li>
   <li><%= link_to 'Contact', home_contact_path %></li>
   <li><%= link_to 'About', home_about_path %></li>
