@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_27_081202) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
+    t.string "name", limit: 70
     t.datetime "date_of_birth"
     t.boolean "is_female", default: false
     t.index ["email"], name: "index_accounts_on_email", unique: true
