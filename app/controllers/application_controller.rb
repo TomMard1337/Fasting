@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::Base       
-    helper_method :currentTimeAndDate, :calorieBurnPerMinute
+    helper_method :currentTimeAndDate, :accountAge
     def currentTimeAndDate
         @todaysDate = DateTime.now.strftime("%Y-%m-%d %H:%M:%S")
       end
+    def accountAge
+       TimeDifference.between(current_account.date_of_birth.strftime("%Y-%m-%d %H:%M:%S"), currentTimeAndDate).in_years
+    end
 
     # Prevent CSRF attacks by raising an exception.
     # For APIs, you may want to use :null_session instead.
