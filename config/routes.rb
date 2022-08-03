@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'home/contact'
   get 'calculator/bmr'
   devise_for :accounts, controllers: {
-    registrations: 'accounts/registrations', sessions: 'accounts/sessions' }
+    registrations: 'accounts/registrations', sessions: 'accounts/sessions', passwords: 'accounts/passwords' }
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
