@@ -81,14 +81,18 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
+
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name => Rails.application.credentials[:smtp_username],
-    :password => Rails.application.credentials[:smtp_password],
-    :address => 'smtp.mailtrap.io',
-    :domain => 'smtp.mailtrap.io',
-    :port => '2525',
-    :authentication => :cram_md5
-  }
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'fasting-ruby.herokuapp.com',
+    user_name:            Rails.application.credentials[:smtp_username],
+    password:             Rails.application.credentials[:smtp_password],
+    authentication:       'plain',
+    enable_starttls_auto: true,
+    open_timeout:         5,
+    read_timeout:         5 }
   config.action_mailer.default_url_options = { host: 'fasting-ruby.herokuapp.com' }
 
   if ENV["RAILS_LOG_TO_STDOUT"].present?
