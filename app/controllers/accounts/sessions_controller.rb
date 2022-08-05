@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 class Accounts::SessionsController < Devise::SessionsController
-  prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
+  # prepend_before_action :check_captcha, only: [:create] # Change this to be any actions you want to protect.
 
-  private
+  # private
 
-  def check_captcha
-    return if verify_recaptcha # verify_recaptcha(action: 'login') for v3
+  # def check_captcha
+  #   return if verify_recaptcha # verify_recaptcha(action: 'login') for v3
 
-    self.resource = resource_class.new sign_in_params
+  #   self.resource = resource_class.new sign_in_params
 
-    respond_with_navigational(resource) do
-      flash.discard(:recaptcha_error) # We need to discard flash to avoid showing it on the next page reload
-      render :new
-    end
-  end 
+  #   respond_with_navigational(resource) do
+  #     flash.discard(:recaptcha_error) # We need to discard flash to avoid showing it on the next page reload
+  #     render :new
+  #   end
+  # end 
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in

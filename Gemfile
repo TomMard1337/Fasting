@@ -46,6 +46,11 @@ gem "bootsnap", require: false
 
 # Use Sass to process CSS
 # gem "sassc-rails"
+
+gem 'omniauth'
+gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
 # cookies gem
 gem 'cookies_eu'
 # recaptcha

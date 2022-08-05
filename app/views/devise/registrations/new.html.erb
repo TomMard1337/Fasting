@@ -35,7 +35,7 @@
   <br>
   
   <div class="actions">
-    <button class="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition"> <%= f.submit "Sign up" %></button>
+    <button class="w-full inline-flex items-center justify-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold capitalize text-white hover:bg-red-700 active:bg-red-700 focus:outline-none focus:border-red-700 focus:ring focus:ring-red-200 disabled:opacity-25 transition"><%= f.submit "Sign up" %></button>
   </div>
   <br>
   <div class="captcha w-full inline-flex items-center justify-center px-4 py-2">
@@ -45,9 +45,8 @@
  </div>
 <% end %>
 </div>
-
-
 <%= render "devise/shared/links" %>
  </div>
 </div>
 
+  <%= button_to "Sign in with Githssddub", omniauth_authorize_path(Account, :github) %>
