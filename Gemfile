@@ -49,7 +49,7 @@ gem "bootsnap", require: false
 
 gem 'omniauth'
 gem "omniauth-rails_csrf_protection", "~> 1.0"
-gem 'omniauth-github'
+#gem 'omniauth-github'
 gem 'omniauth-google-oauth2'
 # cookies gem
 gem 'cookies_eu'

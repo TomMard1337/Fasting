@@ -22,8 +22,9 @@
   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
 
     <%= form.label :DateAndTime, class:"block text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.datetime_select :DateAndTime, :start_year => 2022, :order => [:day, :month, :year] %>
+    <%= form.date_field :DateAndTime %> <%= form.time_select :DateAndTime %>
   </div>
+  
   
   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
    <%= form.label :Age, class:"block text-gray-700 text-sm font-bold mb-2" %>

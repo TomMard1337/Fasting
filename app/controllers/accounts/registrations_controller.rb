@@ -18,10 +18,33 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   #     render :new
   #   end
   # end
- 
- 
- 
- 
+
+  # protected
+
+  protected
+  #   # password change without password works and you can update account with password
+  # def update_resource(resource, params)
+  #   # Require current password if user is trying to change password.
+  #  return super if params["current_password"]&.present?
+  #   # Allows user to update registration information without password.
+  #     resource.password = params['password']
+  #     resource.password_confirmation = params['password_confirmation']
+  #     params.delete('current_password')
+  #     resource.update_without_password(params.except("current_password"))
+  # end
+
+
+    # password change without password works and you can update account with password
+    def update_resource(resource, params)
+      # Require current password if user is trying to change password.
+     return super if params["current_password"]&.present?
+      # Allows user to update registration information without password.
+        resource.password = params['password']
+        resource.password_confirmation = params['password_confirmation']
+        params.delete('current_password')
+        resource.update_without_password(params.except("current_password"))
+    end
+
  
  
   # before_action :configure_sign_up_params, only: [:create]
@@ -31,7 +54,7 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
   # def new
   #   super
   # end
-
+  # account:
   # POST /resource
   # def create
   #   super

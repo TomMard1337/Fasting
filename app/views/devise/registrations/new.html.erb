@@ -26,9 +26,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" , class:"py-2 px-3 border border-gray-300 focus:border-red-300 focus:outline-none focus:ring focus:ring-red-200 focus:ring-opacity-50 rounded-md shadow-sm disabled:bg-gray-100 mt-1 block w-full" %>
   </div>
 
-    <div><%= f.label :date_of_birth %><br/>
-    <%= f.date_select :date_of_birth, :default => {:day => '1', :month => '1', :year => '2000'}, end_year: Time.now.year - 1, :start_year => 1900, :order => [:day, :month, :year] %></div>
 
+    <br>
+    <br>
+    <div>
+    <%= f.label :date_of_birth %><br/>
+    <%= f.date_field :date_of_birth %> 
+    </div>
         <div><%= f.radio_button :is_female, '0' %> <%= f.label :is_female, "Male" %> </div>
         <div><%= f.radio_button :is_female, '1' %> <%= f.label :is_female, "Female" %> </div>
         
@@ -49,4 +53,3 @@
  </div>
 </div>
 
-  <%= button_to "Sign in with Githssddub", omniauth_authorize_path(Account, :github) %>
