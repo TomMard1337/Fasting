@@ -8,11 +8,10 @@ class Account < ApplicationRecord
  validates :name, :length => { :maximum => 70 }
  validates :name, :length => { :minimum => 6 }
   has_many :addfasts
- validates :date_of_birth, presence: true
  validate :validate_age
 
  def validate_age
-     if date_of_birth.present? && date_of_birth > 13.years.ago.to_s
+    if date_of_birth.present? && date_of_birth > 13.years.ago.to_s
          errors.add(:Error, 'You should be over 13 years old.')
      end
  end
