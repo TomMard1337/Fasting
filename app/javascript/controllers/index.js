@@ -4,5 +4,11 @@
 
 import { application } from "./application"
 
+import ConverterController from "./converter_controller"
+application.register("converter", ConverterController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import ResetController from "./reset_controller"
+application.register("reset", ResetController)

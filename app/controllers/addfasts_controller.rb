@@ -1,7 +1,11 @@
 class AddfastsController < ApplicationController
-  before_action :set_addfast, only: %i[ show edit update destroy ]
+  before_action :set_addfast, only: %i[show edit update destroy]
   before_action :authenticate_account!
   before_action :correct_account, only: [:show, :edit, :update, :destroy]
+
+  
+
+ 
   # GET /addfasts or /addfasts.json
   def index
     @addfasts = Addfast.all
@@ -15,7 +19,7 @@ class AddfastsController < ApplicationController
   def new
 
     # @addfast = Addfast.new
-    @addfast = current_account.addfasts.build
+    @addfast = current_account.addfasts.build(addfast_params)
   end
 
   # GET /addfasts/1/edit
@@ -72,6 +76,6 @@ class AddfastsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def addfast_params
-      params.require(:addfast).permit(:Name, :DateAndTime, :account_id)
+      params.fetch(:addfast, {}).permit(:Name, :DateAndTime, :account_id, :activity_level, :height, :weight, :unit_conversion)
     end
 end

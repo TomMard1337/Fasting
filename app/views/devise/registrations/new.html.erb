@@ -2,7 +2,7 @@
 <div class="w-full min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
   <div class="w-full sm:max-w-md p-5 mx-auto">
     <h2 class="mb-12 text-center text-5xl font-extrabold">Sign Up</h2>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false} ) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
     <div><%= f.label :name %><br />

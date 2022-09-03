@@ -13,15 +13,18 @@ gem 'devise'
 gem 'time_difference'
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+# human height gem
 
 # Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
 gem "jsbundling-rails"
+gem 'ruby-units'
+gem 'ruby-measurement'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-# gem "turbo-rails"
+gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-# gem "stimulus-rails"
+gem "stimulus-rails"
 
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem "cssbundling-rails"

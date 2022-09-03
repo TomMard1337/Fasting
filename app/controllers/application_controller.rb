@@ -1,12 +1,5 @@
 class ApplicationController < ActionController::Base
-    #     def update_profile
-    #     if account_signed_in? && current_account.date_of_birth.nil?
-    #     redirect_to '/accounts/edit'
-    #   end
-    # end
-    # def after_sign_in_path_for(resource)
-    #     account_path(current_account) # your path
-    #   end
+
 
 
     helper_method :currentTimeAndDate, :accountAge
@@ -17,6 +10,7 @@ class ApplicationController < ActionController::Base
        TimeDifference.between(current_account.date_of_birth.strftime("%Y-%m-%d %H:%M:%S"), currentTimeAndDate).in_years
     end
 
+     
     # Prevent CSRF attacks by raising an exception.
     # For APIs, you may want to use :null_session instead.
     protect_from_forgery with: :exception

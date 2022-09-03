@@ -1,6 +1,6 @@
-<%# Make name max character limit 12-16
-    Fix autocomplete %>
+<%# Validations: Name length %>
 
+     <%= stylesheet_link_tag "addfastsform" %> 
 <%= form_with(model: addfast) do |form| %>
   <% if addfast.errors.any? %>
     <div style="color: red">
@@ -13,6 +13,59 @@
       </ul>
     </div>
   <% end %>
+<%# metric to imperial select %>
+
+<div data-controller="converter">
+<%= form.button "Validate", formaction: new_addfast_path, formmethod: :get, data: { turbo_frame: :cs_select, converter_target: "submitbtn" } %>
+
+
+  <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+  <%= form.label :unit_conversion, input_html: {}, class:"block text-gray-700 text-sm font-bold mb-2" %>  
+ <%= form.select :unit_conversion, Addfast.unit_conversions, {}, {data: {action: "change->converter#remotesubmit"}, autocomplete: "off", class: "form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat 
+   border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" 
+   } %>
+</div>
+</div>
+<%= turbo_frame_tag :cs_select do %>
+<%# Metric Menus %>
+<% if addfast.Metric? %>
+<div class="addfast_metric" id="metric">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+   <%= form.label :weight_in_kg, class:"block text-gray-700 text-sm font-bold mb-2" %>
+   <%= form.text_field :weight, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+   <%= form.label :height_in_cm, class:"block text-gray-700 text-sm font-bold mb-2" %>
+   <%= form.text_field :height, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+</div>
+
+<% end %>
+<%# Imperial Menus%>
+<% if addfast.Imperial? %>
+<div class="addfast_imperial" id="imperial">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+   <%= form.label :weight_in_lb, class:"block text-gray-700 text-sm font-bold mb-2" %>
+   <%= form.text_field :weight, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+   <%= form.label :height_in_in, class:"block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.select :height, addfast.heightselect, {}, {autocomplete: "off", class: "form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat 
+   border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" 
+   } %>
+
+
+  </div>
+
+</div>
+
+<% end %>
+<% end %>
+
 
   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
     <%= form.label :Name, class:"block text-gray-700 text-sm font-bold mb-2" %>
@@ -30,25 +83,22 @@
    <%= form.label :Age, class:"block text-gray-700 text-sm font-bold mb-2" %>
   <%= accountAge.truncate() %> 
   </div>
+
+
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-   <%= form.label :Weight, class:"block text-gray-700 text-sm font-bold mb-2" %>
-   <%= form.text_field :Weight, class:"shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-  </div>
-    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-   <%= form.label :Sex, class:"block text-gray-700 text-sm font-bold mb-2" %>
-   <%= form.select :Sex, ["Male", "Female"],
-   {}, {class: "form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat 
+  <%= form.label :activity_level, class:"block text-gray-700 text-sm font-bold mb-2" %>
+  <%= form.select :activity_level, ["None", "Sedentary", "Light", "Moderate", "Very Active", "Extremely active"],
+   {}, {autocomplete: "off", class: "form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat 
    border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"} %>
   </div>
-    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-  <%= form.label :Activity_Level, input_html: {autocomplete: 'off'}, class:"block text-gray-700 text-sm font-bold mb-2" %>
-  <%= form.select :Activity_Level, ["None", "Sedentary", "Light", "Moderate", "Very Active", "Extremely active"],
-   {}, {class: "form-select appearance-none block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat 
-   border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"} %>
-  </div>
+
+<div id="demo">
+</div>
     <%= form.number_field :account_id, id: :account_user_id, value: current_account.id, type: :hidden %>
   <br>
   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
     <%= form.submit class:"bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" %>
   </div>
+
 <% end %>
+

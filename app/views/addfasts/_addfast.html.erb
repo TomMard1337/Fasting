@@ -16,5 +16,30 @@
     <strong>Kcal burned (BMR / 24) * fast time</strong>
     <%= TimeDifference.between(addfast.DateAndTime.strftime("%Y-%m-%d %H:%M:%S"), currentTimeAndDate).in_minutes %>
   </p>
+      <strong>unit conversion</strong>
+    <%= addfast.unit_conversion %>
+    </p>
+      <% if addfast.Metric? %>
+        <strong>height cm</strong>
+           <%= addfast.height %>
+              <br>
+        <strong>Weight kg</strong>
+       <%= addfast.weight %>
+        <% end %>
+          <% if addfast.Imperial? %>
+        <strong>height Inches option id</strong>
+         <%= addfast.height %>
+        <br>
+      <strong>Weight lbs</strong>
+       <%= addfast.weight %>
+       <br>
+      <strong>Imperial Helper render height</strong>
+    <%= addfast.height_in_in %>
+           <br>
+      <strong>height_from_in_to_cm</strong>
+    <%= addfast.height_from_in_to_cm %>
+    <% end %>
+    
+  </p>
 </div>
 
